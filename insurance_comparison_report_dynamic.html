@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>保险产品对比分析 - 友邦盈如意星享2026 vs 工银安盛御安赢25</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#E61E25',
+                        secondary: '#FFFFFF',
+                        dark: '#333333',
+                        light: '#F5F5F5'
+                    },
+                    fontFamily: {
+                        sans: ['Open Sans', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            }
+            .card-hover {
+                transition: all 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            }
+            .gradient-bg {
+                background: linear-gradient(135deg, #E61E25 0%, #C0171E 100%);
+            }
+            .gradient-text {
+                background: linear-gradient(135deg, #E61E25 0%, #C0171E 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+            .animate-float {
+                animation: float 6s ease-in-out infinite;
+            }
+            .animate-pulse-slow {
+                animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+            }
+            .animate-slide-in {
+                animation: slideIn 0.8s ease-out forwards;
+            }
+            .animate-fade-in {
+                animation: fadeIn 0.8s ease-out forwards;
+            }
+            .scroll-reveal {
+                opacity: 0;
+                transform: translateY(30px);
+                transition: all 0.8s ease;
+            }
+            .scroll-reveal.active {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, rgba(230, 30, 37, 0.95) 0%, rgba(192, 23, 30, 0.95) 100%), url('https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&q=80&w=1000') center/cover no-repeat;
+        }
+
+        .stats-card {
+            transition: all 0.3s ease;
+        }
+
+        .stats-card:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: white;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .btn-primary {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(230, 30, 37, 0.3);
+        }
+
+        .table-row {
+            transition: all 0.3s ease;
+        }
+
+        .table-row:hover {
+            background-color: rgba(230, 30, 37, 0.05);
+        }
+
+        .chart-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .chart-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(230, 30, 37, 0.05) 0%, rgba(192, 23, 30, 0.05) 100%);
+            z-index: -1;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- 顶部导航栏 -->
+    <header class="fixed top-0 left-0 right-0 z-50 gradient-bg shadow-md">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <i class="fa fa-shield text-2xl text-white"></i>
+                <h1 class="text-2xl font-bold text-white font-heading">保险产品对比分析</h1>
+            </div>
+            <nav class="hidden md:flex space-x-6">
+                <a href="#overview" class="text-white hover:text-gray-200 nav-link">产品概览</a>
+                <a href="#comparison" class="text-white hover:text-gray-200 nav-link">保障对比</a>
+                <a href="#premium" class="text-white hover:text-gray-200 nav-link">保费对比</a>
+                <a href="#advantages" class="text-white hover:text-gray-200 nav-link">产品优势</a>
+                <a href="#company" class="text-white hover:text-gray-200 nav-link">公司对比</a>
+            </nav>
+            <div class="md:hidden">
+                <button class="text-white focus:outline-none">
+                    <i class="fa fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section class="hero-section min-h-screen flex items-center justify-center pt-16">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 animate-fade-in">
+                友邦盈如意星享2026 vs 工银安盛御安赢25
+            </h1>
+            <p class="text-xl md:text-2xl text-white mb-10 max-w-3xl mx-auto animate-fade-in" style="animation-delay: 0.2s">
+                详细对比分析，帮助您做出明智的保险决策
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-4 animate-fade-in" style="animation-delay: 0.4s">
+                <a href="#overview" class="btn-primary bg-white text-primary font-bold py-3 px-8 rounded-full inline-block">
+                    开始了解
+                </a>
+                <a href="#contact" class="bg-transparent border-2 border-white text-white font-bold py-3 px-8 rounded-full inline-block hover:bg-white hover:text-primary transition-all duration-300">
+                    联系代理人
+                </a>
+            </div>
+            <div class="mt-20 animate-bounce">
+                <a href="#overview" class="text-white">
+                    <i class="fa fa-angle-down text-3xl"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="container mx-auto px-4 py-16">
+        <!-- 产品概览 -->
+        <section id="overview" class="mb-24 scroll-reveal">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 font-heading">
+                    <span class="gradient-text">产品概览</span>
+                </h2>
+                <p class="text-gray-600 max-w-3xl mx-auto">了解两款产品的基本信息和核心保障</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- 友邦产品卡片 -->
+                <div class="bg-white rounded-xl shadow-xl p-8 card-hover border-t-4 border-primary relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-40 h-40 bg-primary/10 rounded-bl-full -z-10"></div>
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mr-4">
+                            <i class="fa fa-star text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-dark font-heading">友邦盈如意星享2026</h3>
+                    </div>
+                    <p class="text-gray-600 mb-6">终身寿险（分红型）+ 提前给付重大疾病保险</p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center mr-3 flex-shrink-0">
+                                <i class="fa fa-check text-primary"></i>
+                            </div>
+                            <div>
+                                <span class="font-semibold">身故/全残保险金：</span>
+                                <span>50万</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center mr-3 flex-shrink-0">
+                                <i class="fa fa-check text-primary"></i>
+                            </div>
+                            <div>
+                                <span class="font-semibold">重度疾病保险金：</span>
+                                <span>50万</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center mr-3 flex-shrink-0">
+                                <i class="fa fa-check text-primary"></i>
+                            </div>
+                            <div>
+                                <span class="font-semibold">中度疾病保险金：</span>
+                                <span>30万（5次）</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center mr-3 flex-shrink-0">
+                                <i class="fa fa-check text-primary"></i>
+                            </div>
+                            <div>
+                                <span class="font-semibold">轻度疾病保险金：</span>
+                                <span>15万（5次）</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center mr-3 flex-shrink-0">
+                                <i class="fa fa-check text-primary"></i>
+                            </div>
+                            <div>
+                                <span class="font-semibold">分红功能：</span>
+                                <span>终身分红，购买交清增额保险</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 工银安盛产品卡片 -->
+                <div class="bg-white rounded-xl shadow-xl p-8 card-hover border-t-4 border-gray-400 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-40 h-40 bg-gray-100 rounded-bl-full -z-10"></div>
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center mr-4">
+                            <i class="fa fa-shield text-gray-500 text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-dark font-heading">工银安盛御安赢25</h3>
+                    </div>
+                    <p class="text-gray-600 mb-6">重大疾病保险</p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <div class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center mr-3 flex-shrink-0">
+                                <i class="fa fa-check text-gray-500"></i>
+                            </div>
+                            <div>
+                                <span class="font-semibold">重大疾病保险金：</span>
+                                <span>50万（140种）</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center mr-3 flex-shrink-0">
+                                <i class="fa fa-check text-gray-500"></i>
+                            </div>
+                            <div>
+                                <span class="font-semibold">中度疾病保险金：</span>
+                                <span>30万（3次）</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center mr-3 flex-shrink-0">
+                                <i class="fa fa-check text-gray-500"></i>
+                            </div>
+                            <div>
+                                <span class="font-semibold">轻度疾病保险金：</span>
+                                <span>15万（3次）</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center mr-3 flex-shrink-0">
+                                <i class="fa fa-check text-gray-500"></i>
+                            </div>
+                            <div>
+                                <span class="font-semibold">可选责任：</span>
+                                <span>重疾多次赔付、身故保障</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center mr-3 flex-shrink-0">
+                                <i class="fa fa-check text-gray-500"></i>
+                            </div>
+                            <div>
+                                <span class="font-semibold">等待期：</span>
+                                <span>仅90天</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 保障责任对比 -->
+        <section id="comparison" class="mb-24 scroll-reveal">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 font-heading">
+                    <span class="gradient-text">保障责任对比</span>
+                </h2>
+                <p class="text-gray-600 max-w-3xl mx-auto">详细对比两款产品的保障责任</p>
+            </div>
+            <div class="bg-white rounded-xl shadow-xl overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead class="gradient-bg text-white">
+                            <tr>
+                                <th class="py-4 px-6 text-left">对比项</th>
+                                <th class="py-4 px-6 text-left">友邦盈如意星享2026</th>
+                                <th class="py-4 px-6 text-left">工银安盛御安赢25</th>
+                                <th class="py-4 px-6 text-left">优势方</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="table-row border-b border-gray-200">
+                                <td class="py-4 px-6 font-semibold">重疾保障</td>
+                                <td class="py-4 px-6">50万，单次</td>
+                                <td class="py-4 px-6">50万，可选3次</td>
+                                <td class="py-4 px-6 font-semibold text-gray-600">工银安盛</td>
+                            </tr>
+                            <tr class="table-row border-b border-gray-200 bg-gray-50">
+                                <td class="py-4 px-6 font-semibold">中症保障</td>
+                                <td class="py-4 px-6">30万，5次</td>
+                                <td class="py-4 px-6">30万，3次</td>
+                                <td class="py-4 px-6 font-semibold text-primary">友邦人寿</td>
+                            </tr>
+                            <tr class="table-row border-b border-gray-200">
+                                <td class="py-4 px-6 font-semibold">轻症保障</td>
+                                <td class="py-4 px-6">15万，5次</td>
+                                <td class="py-4 px-6">15万，3次</td>
+                                <td class="py-4 px-6 font-semibold text-primary">友邦人寿</td>
+                            </tr>
+                            <tr class="table-row border-b border-gray-200 bg-gray-50">
+                                <td class="py-4 px-6 font-semibold">身故保障</td>
+                                <td class="py-4 px-6">50万（终身寿险）</td>
+                                <td class="py-4 px-6">可选，18岁前退保费</td>
+                                <td class="py-4 px-6 font-semibold text-primary">友邦人寿</td>
+                            </tr>
+                            <tr class="table-row border-b border-gray-200">
+                                <td class="py-4 px-6 font-semibold">全残保障</td>
+                                <td class="py-4 px-6">50万</td>
+                                <td class="py-4 px-6">无</td>
+                                <td class="py-4 px-6 font-semibold text-primary">友邦人寿</td>
+                            </tr>
+                            <tr class="table-row border-b border-gray-200 bg-gray-50">
+                                <td class="py-4 px-6 font-semibold">分红功能</td>
+                                <td class="py-4 px-6">✅ 有</td>
+                                <td class="py-4 px-6">❌ 无</td>
+                                <td class="py-4 px-6 font-semibold text-primary">友邦人寿</td>
+                            </tr>
+                            <tr class="table-row border-b border-gray-200">
+                                <td class="py-4 px-6 font-semibold">少儿特疾</td>
+                                <td class="py-4 px-6">50万</td>
+                                <td class="py-4 px-6">50万（可选）</td>
+                                <td class="py-4 px-6 font-semibold text-primary">友邦人寿</td>
+                            </tr>
+                            <tr class="table-row">
+                                <td class="py-4 px-6 font-semibold">特别保障</td>
+                                <td class="py-4 px-6">25万（至65岁）</td>
+                                <td class="py-4 px-6">无</td>
+                                <td class="py-4 px-6 font-semibold text-primary">友邦人寿</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- 保费对比 -->
+        <section id="premium" class="mb-24 scroll-reveal">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 font-heading">
+                    <span class="gradient-text">保费对比</span>
+                </h2>
+                <p class="text-gray-600 max-w-3xl mx-auto">50万保额的保费对比分析</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- 男性保费 -->
+                <div class="bg-white rounded-xl shadow-xl p-6 chart-container">
+                    <h3 class="text-xl font-bold text-dark mb-6 font-heading">30岁男性，20年缴费</h3>
+                    <div class="h-80">
+                        <canvas id="malePremiumChart"></canvas>
+                    </div>
+                </div>
+                <!-- 女性保费 -->
+                <div class="bg-white rounded-xl shadow-xl p-6 chart-container">
+                    <h3 class="text-xl font-bold text-dark mb-6 font-heading">30岁女性，20年缴费</h3>
+                    <div class="h-80">
+                        <canvas id="femalePremiumChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-lg">
+                <p class="text-sm text-yellow-700">
+                    <i class="fa fa-info-circle mr-2 text-yellow-500"></i>
+                    <span class="font-semibold">保费差异分析：</span> 友邦产品年缴保费比工银安盛高约40-50%，但友邦产品包含终身寿险和分红功能，具有储蓄和传承价值。长期来看，友邦产品的现金价值+分红可能超过保费差异。
+                </p>
+            </div>
+        </section>
+
+        <!-- 总保障额度对比 -->
+        <section class="mb-24 scroll-reveal">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 font-heading">
+                    <span class="gradient-text">总保障额度对比</span>
+                </h2>
+                <p class="text-gray-600 max-w-3xl mx-auto">两款产品的总保障额度对比</p>
+            </div>
+            <div class="bg-white rounded-xl shadow-xl p-6 chart-container">
+                <div class="h-96">
+                    <canvas id="coverageChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- 友邦产品优势 -->
+        <section id="advantages" class="mb-24 scroll-reveal">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 font-heading">
+                    <span class="gradient-text">友邦产品核心优势</span>
+                </h2>
+                <p class="text-gray-600 max-w-3xl mx-auto">了解友邦盈如意星享2026的核心竞争优势</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl shadow-xl p-6 card-hover">
+                    <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+                        <i class="fa fa-life-ring text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark mb-4 font-heading">终身寿险基础</h3>
+                    <p class="text-gray-600">友邦产品是终身寿险+重疾附加险的组合，即使不得重疾，也有身故保障（确定给付），具有储蓄和传承功能。</p>
+                </div>
+                <div class="bg-white rounded-xl shadow-xl p-6 card-hover">
+                    <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+                        <i class="fa fa-line-chart text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark mb-4 font-heading">分红增值功能</h3>
+                    <p class="text-gray-600">现金红利可购买交清增额保险，保额随时间增长，抵御通胀，长期持有价值更高。</p>
+                </div>
+                <div class="bg-white rounded-xl shadow-xl p-6 card-hover">
+                    <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+                        <i class="fa fa-refresh text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark mb-4 font-heading">更多赔付次数</h3>
+                    <p class="text-gray-600">轻症：5次 vs 3次；中症：5次 vs 3次，保障更全面。</p>
+                </div>
+                <div class="bg-white rounded-xl shadow-xl p-6 card-hover">
+                    <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+                        <i class="fa fa-wheelchair text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark mb-4 font-heading">全残保障</h3>
+                    <p class="text-gray-600">友邦包含全残保险金50万，工银安盛无此保障。</p>
+                </div>
+                <div class="bg-white rounded-xl shadow-xl p-6 card-hover">
+                    <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+                        <i class="fa fa-star-half-o text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark mb-4 font-heading">特别保障金</h3>
+                    <p class="text-gray-600">友邦有特别保障至65岁（25万），工银安盛无此保障。</p>
+                </div>
+                <div class="bg-white rounded-xl shadow-xl p-6 card-hover">
+                    <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+                        <i class="fa fa-building text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark mb-4 font-heading">公司品牌</h3>
+                    <p class="text-gray-600">友邦：百年历史，专注寿险，财务稳健，服务优质。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 公司偿付能力与理赔口碑对比 -->
+        <section id="company" class="mb-24 scroll-reveal">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 font-heading">
+                    <span class="gradient-text">公司偿付能力与理赔口碑对比</span>
+                </h2>
+                <p class="text-gray-600 max-w-3xl mx-auto">了解两家公司的财务实力和服务质量</p>
+            </div>
+            <div class="bg-white rounded-xl shadow-xl p-8">
+                <h3 class="text-2xl font-bold text-dark mb-6 font-heading">偿付能力充足率对比</h3>
+                <div class="overflow-x-auto mb-12">
+                    <table class="w-full">
+                        <thead class="bg-gray-100">
+                            <tr>
+                                <th class="py-3 px-4 text-left">公司</th>
+                                <th class="py-3 px-4 text-left">综合偿付能力充足率</th>
+                                <th class="py-3 px-4 text-left">核心偿付能力充足率</th>
+                                <th class="py-3 px-4 text-left">数据时间</th>
+                                <th class="py-3 px-4 text-left">评级</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="table-row border-b border-gray-200">
+                                <td class="py-3 px-4 font-bold text-primary">友邦人寿</td>
+                                <td class="py-3 px-4 font-semibold">424.34%</td>
+                                <td class="py-3 px-4 font-semibold">303.14%</td>
+                                <td class="py-3 px-4">2024年第4季度</td>
+                                <td class="py-3 px-4">-</td>
+                            </tr>
+                            <tr class="table-row border-b border-gray-200">
+                                <td class="py-3 px-4 font-bold text-gray-600">工银安盛人寿</td>
+                                <td class="py-3 px-4">248%</td>
+                                <td class="py-3 px-4">184%</td>
+                                <td class="py-3 px-4">2025年一季度</td>
+                                <td class="py-3 px-4">AAA</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h3 class="text-2xl font-bold text-dark mb-6 font-heading">理赔口碑对比</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-primary/5 rounded-xl p-6 border-l-4 border-primary">
+                        <h4 class="text-xl font-bold text-primary mb-4 font-heading">友邦人寿</h4>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center mr-3 flex-shrink-0">
+                                    <i class="fa fa-check text-primary"></i>
+                                </div>
+                                <span>国际知名保险公司，理赔服务客户满意度高</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center mr-3 flex-shrink-0">
+                                    <i class="fa fa-check text-primary"></i>
+                                </div>
+                                <span>专业的服务团队和高效的理赔流程</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center mr-3 flex-shrink-0">
+                                    <i class="fa fa-check text-primary"></i>
+                                </div>
+                                <span>便捷的理赔通道和透明的理赔流程</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-50 rounded-xl p-6 border-l-4 border-gray-400">
+                        <h4 class="text-xl font-bold text-gray-600 mb-4 font-heading">工银安盛人寿</h4>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <div class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center mr-3 flex-shrink-0">
+                                    <i class="fa fa-check text-gray-500"></i>
+                                </div>
+                                <span>理赔服务在业界享有良好声誉</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center mr-3 flex-shrink-0">
+                                    <i class="fa fa-check text-gray-500"></i>
+                                </div>
+                                <span>客户赠送锦旗，称赞"情系客户尽心理赔 服务口碑至善至美"</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center mr-3 flex-shrink-0">
+                                    <i class="fa fa-check text-gray-500"></i>
+                                </div>
+                                <span>八年间为两个家庭累计赔付轻症保险金12万元</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="mt-8 text-sm text-gray-600">
+                    <p class="font-semibold mb-2">数据来源：</p>
+                    <ul class="space-y-1">
+                        <li>友邦人寿偿付能力：<a href="https://m.sohu.com/coo/sg/871062964_122066678" class="text-primary hover:underline" target="_blank">搜狐网</a></li>
+                        <li>工银安盛偿付能力：<a href="http://m.toutiao.com/group/7501590476655559183/" class="text-primary hover:underline" target="_blank">今日头条</a></li>
+                        <li>工银安盛理赔口碑：<a href="https://m.shenlanbao.com/wenda/1-467018" class="text-primary hover:underline" target="_blank">深蓝保问答</a>、<a href="http://cn.chinadaily.com.cn/a/202506/10/WS6847ea86a3102053770375ea.html" class="text-primary hover:underline" target="_blank">中国日报</a>、<a href="https://c.m.163.com/news/a/JPG0M2BR0553KBHM.html" class="text-primary hover:underline" target="_blank">网易新闻</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 销售话术建议 -->
+        <section class="mb-24 scroll-reveal">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 font-heading">
+                    <span class="gradient-text">销售话术建议</span>
+                </h2>
+                <p class="text-gray-600 max-w-3xl mx-auto">专业的销售话术，帮助您更好地向客户介绍产品</p>
+            </div>
+            <div class="bg-white rounded-xl shadow-xl p-8">
+                <div class="space-y-8">
+                    <div class="border-l-4 border-primary pl-6 py-2">
+                        <h3 class="text-xl font-bold text-dark mb-3 font-heading">开场白</h3>
+                        <p class="text-gray-600 italic">"这款友邦盈如意星享2026是一款分红型终身寿险，不仅保重疾，更是一份确定的财富传承。即使一辈子平平安安，这笔钱也能留给家人。"</p>
+                    </div>
+                    <div class="border-l-4 border-primary pl-6 py-2">
+                        <h3 class="text-xl font-bold text-dark mb-3 font-heading">应对"工银安盛更便宜"</h3>
+                        <p class="text-gray-600 italic">"工银安盛是纯消费型重疾，而我们友邦是储蓄型寿险。就像买房和租房，租房便宜但没有资产积累。我们的产品既有保障，又能积累财富。"</p>
+                    </div>
+                    <div class="border-l-4 border-primary pl-6 py-2">
+                        <h3 class="text-xl font-bold text-dark mb-3 font-heading">强调分红价值</h3>
+                        <p class="text-gray-600 italic">"友邦的分红历史稳健，现金红利可以自动购买增额保险。这意味着您的保额会逐年增长，30年后可能从50万涨到60-70万，有效抵御通胀。"</p>
+                    </div>
+                    <div class="border-l-4 border-primary pl-6 py-2">
+                        <h3 class="text-xl font-bold text-dark mb-3 font-heading">强调赔付次数</h3>
+                        <p class="text-gray-600 italic">"轻症和中症友邦都能赔5次，工银安盛只有3次。现代医学发达，多次轻症发生的可能性很高，多2次赔付就是多30万的保障。"</p>
+                    </div>
+                    <div class="border-l-4 border-primary pl-6 py-2">
+                        <h3 class="text-xl font-bold text-dark mb-3 font-heading">强调偿付能力</h3>
+                        <p class="text-gray-600 italic">"友邦的偿付能力充足率高达424.34%，远高于行业平均水平，是工银安盛的1.7倍，这意味着我们有更强的抗风险能力和理赔能力，让您的保障更有保障。"</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 代理人信息 -->
+        <section id="contact" class="mb-16 scroll-reveal">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 font-heading">
+                    <span class="gradient-text">代理人信息</span>
+                </h2>
+                <p class="text-gray-600 max-w-3xl mx-auto">专业的保险顾问，为您提供一对一服务</p>
+            </div>
+            <div class="bg-white rounded-xl shadow-xl p-8 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-bl-full -z-10"></div>
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="w-32 h-32 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                        <i class="fa fa-user-circle text-primary text-5xl"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold text-dark mb-2 font-heading">胡盼</h3>
+                        <p class="text-gray-600 mb-6">友邦人寿保险有限公司</p>
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mr-4">
+                                    <i class="fa fa-phone text-primary"></i>
+                                </div>
+                                <span class="text-lg">18600245278</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mr-4">
+                                    <i class="fa fa-id-card text-primary"></i>
+                                </div>
+                                <span class="text-lg">执业证编号: 02002311000080002018064169</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-primary/5 rounded-xl p-6">
+                        <h4 class="font-bold text-dark mb-4 font-heading">服务承诺</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-center">
+                                <i class="fa fa-check text-primary mr-3"></i>
+                                <span>专业保险规划建议</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-check text-primary mr-3"></i>
+                                <span>全程理赔协助服务</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-check text-primary mr-3"></i>
+                                <span>定期保单检视服务</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-check text-primary mr-3"></i>
+                                <span>7×24小时咨询服务</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="gradient-bg text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-8 md:mb-0">
+                    <h3 class="text-2xl font-bold mb-4 font-heading">友邦人寿保险有限公司</h3>
+                    <p class="opacity-80">专业保险服务，守护您的未来</p>
+                </div>
+                <div class="text-center md:text-right">
+                    <p class="opacity-80 mb-2">© 2026 友邦人寿保险有限公司</p>
+                    <p class="opacity-80">本报告仅供参考，具体以保险合同为准</p>
+                </div>
+            </div>
+            <div class="border-t border-white/20 mt-8 pt-8 text-center">
+                <p class="opacity-60 text-sm">
+                    保险代理人：胡盼 | 联系方式：18600245278 | 执业证编号：02002311000080002018064169
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 滚动显示动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const scrollElements = document.querySelectorAll('.scroll-reveal');
+            
+            const elementInView = (el, dividend = 1) => {
+                const elementTop = el.getBoundingClientRect().top;
+                return (
+                    elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend
+                );
+            };
+            
+            const displayScrollElement = (element) => {
+                element.classList.add('active');
+            };
+            
+            const hideScrollElement = (element) => {
+                element.classList.remove('active');
+            };
+            
+            const handleScrollAnimation = () => {
+                scrollElements.forEach((el) => {
+                    if (elementInView(el, 1.25)) {
+                        displayScrollElement(el);
+                    } else {
+                        hideScrollElement(el);
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', () => {
+                handleScrollAnimation();
+            });
+            
+            // 初始检查
+            handleScrollAnimation();
+        });
+
+        // 男性保费对比图表
+        const maleCtx = document.getElementById('malePremiumChart').getContext('2d');
+        new Chart(maleCtx, {
+            type: 'bar',
+            data: {
+                labels: ['年缴保费', '总保费'],
+                datasets: [
+                    {
+                        label: '友邦盈如意星享2026',
+                        data: [18000, 360000],
+                        backgroundColor: '#E61E25',
+                        borderColor: '#E61E25',
+                        borderWidth: 1,
+                        borderRadius: 8,
+                        animation: {
+                            duration: 2000,
+                            easing: 'easeOutQuart'
+                        }
+                    },
+                    {
+                        label: '工银安盛御安赢25',
+                        data: [12000, 240000],
+                        backgroundColor: '#9CA3AF',
+                        borderColor: '#9CA3AF',
+                        borderWidth: 1,
+                        borderRadius: 8,
+                        animation: {
+                            duration: 2000,
+                            easing: 'easeOutQuart',
+                            delay: 300
+                        }
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: {
+                            font: {
+                                family: 'Montserrat',
+                                size: 14
+                            }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.dataset.label + ': ¥' + context.raw.toLocaleString();
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return '¥' + value.toLocaleString();
+                            },
+                            font: {
+                                family: 'Open Sans'
+                            }
+                        },
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.05)'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        },
+                        ticks: {
+                            font: {
+                                family: 'Open Sans'
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // 女性保费对比图表
+        const femaleCtx = document.getElementById('femalePremiumChart').getContext('2d');
+        new Chart(femaleCtx, {
+            type: 'bar',
+            data: {
+                labels: ['年缴保费', '总保费'],
+                datasets: [
+                    {
+                        label: '友邦盈如意星享2026',
+                        data: [15000, 300000],
+                        backgroundColor: '#E61E25',
+                        borderColor: '#E61E25',
+                        borderWidth: 1,
+                        borderRadius: 8,
+                        animation: {
+                            duration: 2000,
+                            easing: 'easeOutQuart'
+                        }
+                    },
+                    {
+                        label: '工银安盛御安赢25',
+                        data: [10000, 200000],
+                        backgroundColor: '#9CA3AF',
+                        borderColor: '#9CA3AF',
+                        borderWidth: 1,
+                        borderRadius: 8,
+                        animation: {
+                            duration: 2000,
+                            easing: 'easeOutQuart',
+                            delay: 300
+                        }
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: {
+                            font: {
+                                family: 'Montserrat',
+                                size: 14
+                            }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.dataset.label + ': ¥' + context.raw.toLocaleString();
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return '¥' + value.toLocaleString();
+                            },
+                            font: {
+                                family: 'Open Sans'
+                            }
+                        },
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.05)'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        },
+                        ticks: {
+                            font: {
+                                family: 'Open Sans'
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // 总保障额度对比图表
+        const coverageCtx = document.getElementById('coverageChart').getContext('2d');
+        new Chart(coverageCtx, {
+            type: 'radar',
+            data: {
+                labels: ['重疾首次', '中症累计', '轻症累计', '身故', '全残', '少儿特疾', '特别保障'],
+                datasets: [
+                    {
+                        label: '友邦盈如意星享2026',
+                        data: [50, 150, 75, 50, 50, 50, 25],
+                        backgroundColor: 'rgba(230, 30, 37, 0.2)',
+                        borderColor: 'rgba(230, 30, 37, 1)',
+                        pointBackgroundColor: 'rgba(230, 30, 37, 1)',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: 'rgba(230, 30, 37, 1)',
+                        animation: {
+                            duration: 2000,
+                            easing: 'easeOutQuart'
+                        }
+                    },
+                    {
+                        label: '工银安盛御安赢25',
+                        data: [50, 90, 45, 0, 0, 0, 0],
+                        backgroundColor: 'rgba(156, 163, 175, 0.2)',
+                        borderColor: 'rgba(156, 163, 175, 1)',
+                        pointBackgroundColor: 'rgba(156, 163, 175, 1)',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: 'rgba(156, 163, 175, 1)',
+                        animation: {
+                            duration: 2000,
+                            easing: 'easeOutQuart',
+                            delay: 300
+                        }
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: {
+                            font: {
+                                family: 'Montserrat',
+                                size: 14
+                            }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.dataset.label + ': ' + context.raw + '万';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    r: {
+                        angleLines: {
+                            color: 'rgba(0, 0, 0, 0.05)'
+                        },
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.05)'
+                        },
+                        pointLabels: {
+                            font: {
+                                family: 'Open Sans'
+                            }
+                        },
+                        ticks: {
+                            callback: function(value) {
+                                return value + '万';
+                            },
+                            font: {
+                                family: 'Open Sans'
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
