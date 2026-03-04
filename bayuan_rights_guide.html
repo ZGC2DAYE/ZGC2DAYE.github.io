@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>芭学园王府园家长维权行动指南</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1a365d',
+                        secondary: '#c9a227',
+                        accent: '#c53030',
+                        dark: '#2d3748',
+                        light: '#f7fafc'
+                    },
+                    fontFamily: {
+                        serif: ['Noto Serif SC', 'serif'],
+                        sans: ['Noto Sans SC', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            }
+            .card-hover {
+                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            .card-hover:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            }
+            .gradient-bg {
+                background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+            }
+            .gradient-text {
+                background: linear-gradient(135deg, #1a365d 0%, #c9a227 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+            .scroll-reveal {
+                opacity: 0;
+                transform: translateY(40px);
+                transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            .scroll-reveal.active {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            .highlight-box {
+                border-left: 4px solid #c9a227;
+                background: linear-gradient(to right, rgba(201, 162, 39, 0.1), transparent);
+            }
+            .warning-box {
+                border-left: 4px solid #c53030;
+                background: linear-gradient(to right, rgba(197, 48, 48, 0.1), transparent);
+            }
+            .success-box {
+                border-left: 4px solid #38a169;
+                background: linear-gradient(to right, rgba(56, 161, 105, 0.1), transparent);
+            }
+        }
+
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background: #f7fafc;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Noto Serif SC', serif;
+        }
+
+        .hero-pattern {
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(201, 162, 39, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(26, 54, 93, 0.1) 0%, transparent 50%);
+        }
+
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, #1a365d, #c9a227, #1a365d, transparent);
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, #1a365d, #c9a227);
+        }
+
+        .pulse-ring {
+            animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+
+        @keyframes pulse-ring {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(197, 48, 48, 0.7);
+            }
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 20px rgba(197, 48, 48, 0);
+            }
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(197, 48, 48, 0);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- 顶部导航 -->
+    <nav class="fixed top-0 left-0 right-0 z-50 gradient-bg shadow-lg">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-3">
+                    <i class="fa fa-shield text-2xl text-secondary"></i>
+                    <span class="text-xl font-bold text-white font-serif">芭学园王府园维权指南</span>
+                </div>
+                <div class="hidden md:flex space-x-6 text-white/90">
+                    <a href="#conclusion" class="hover:text-secondary transition-colors">核心结论</a>
+                    <a href="#analysis" class="hover:text-secondary transition-colors">问题分析</a>
+                    <a href="#channels" class="hover:text-secondary transition-colors">维权渠道</a>
+                    <a href="#templates" class="hover:text-secondary transition-colors">维权模板</a>
+                    <a href="#strategy" class="hover:text-secondary transition-colors">行动策略</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄区域 -->
+    <header class="bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 hero-pattern min-h-screen flex items-center justify-center pt-20 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-20">
+            <div class="absolute top-20 left-10 w-32 h-32 border-2 border-yellow-400 rounded-full animate-pulse"></div>
+            <div class="absolute bottom-20 right-10 w-48 h-48 border-2 border-yellow-400/30 rounded-full animate-pulse" style="animation-delay: 1s;"></div>
+        </div>
+        
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <div class="inline-block mb-6 px-6 py-3 bg-yellow-400 rounded-full shadow-lg">
+                <span class="text-slate-900 font-bold text-lg">芭学园王府园家长联合维权</span>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 font-serif leading-tight text-white">
+                芭学园王府园家长<br>
+                <span class="text-yellow-400">合法维权行动指南</span>
+            </h1>
+            <p class="text-xl text-gray-200 mb-10 max-w-3xl mx-auto leading-relaxed bg-black/20 backdrop-blur-sm px-6 py-4 rounded-xl">
+                针对芭学园王府园元宵节活动问题，我们为您提供专业的法律分析、维权渠道和行动建议。
+                <span class="text-yellow-300 font-semibold">不绕弯、不鸡汤，只讲你现在能用、能落地的东西。</span>
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="#conclusion" class="bg-yellow-400 text-slate-900 font-bold py-4 px-8 rounded-lg hover:bg-yellow-300 transition-all duration-300 shadow-lg hover:shadow-yellow-400/50 transform hover:-translate-y-1">
+                    <i class="fa fa-star mr-2"></i>查看核心结论
+                </a>
+                <a href="#channels" class="bg-white text-slate-900 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition-all duration-300 shadow-lg">
+                    <i class="fa fa-phone mr-2"></i>了解维权渠道
+                </a>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="fa fa-chevron-down text-yellow-400 text-2xl"></i>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-16 max-w-5xl">
+        <!-- 核心问题分析 -->
+        <section id="conclusion" class="mb-20 scroll-reveal">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 font-serif">
+                    <span class="gradient-text">核心问题分析</span>
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                <div class="bg-white rounded-xl shadow-lg p-6 card-hover border-t-4 border-accent">
+                    <div class="w-14 h-14 rounded-full bg-accent/10 flex items-center justify-center mb-4">
+                        <i class="fa fa-exclamation-triangle text-accent text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 font-serif">工作日活动问题</h3>
+                    <p class="text-gray-700 text-sm leading-relaxed">
+                        在工作日组织大型活动，名义上"自愿参加"，但实际上造成同伴压力，且未参加孩子的看护安排存疑。
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-6 card-hover border-t-4 border-primary">
+                    <div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                        <i class="fa fa-money-bill-wave text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 font-serif">收费项目问题</h3>
+                    <p class="text-gray-700 text-sm leading-relaxed">
+                        设置20余项高收费项目，包含砸金蛋、抽奖等带有博彩性质的活动，收费标准不透明且过高。
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-6 card-hover border-t-4 border-secondary">
+                    <div class="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center mb-4">
+                        <i class="fa fa-users text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 font-serif">管理混乱问题</h3>
+                    <p class="text-gray-700 text-sm leading-relaxed">
+                        活动现场管理混乱，孩子安全存在隐患，表演节目质量参差不齐，缺乏教育意义和文化内涵。
+                    </p>
+                </div>
+            </div>
+
+            <!-- 详细问题清单 -->
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <h3 class="text-2xl font-bold mb-6 font-serif flex items-center">
+                    <i class="fa fa-list-ul text-primary mr-3"></i>
+                    详细问题清单
+                </h3>
+                
+                <div class="space-y-6">
+                    <div class="highlight-box p-6 rounded-lg">
+                        <h4 class="font-bold text-lg mb-2 flex items-center">
+                            <span class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center mr-3 text-sm">1</span>
+                            工作日活动安排不合理
+                        </h4>
+                        <ul class="ml-11 space-y-2 text-gray-800">
+                            <li class="font-medium">• 私立学校按天收费，工作日组织活动影响正常教学</li>
+                            <li class="font-medium">• "自愿参加"名义下，未参加孩子的看护方案不明确</li>
+                            <li class="font-medium">• 教师参与摆摊，精力分散，影响正常看护质量</li>
+                            <li class="font-medium">• 家长被迫请假参加，增加时间成本和经济负担</li>
+                        </ul>
+                    </div>
+
+                    <div class="highlight-box p-6 rounded-lg">
+                        <h4 class="font-bold text-lg mb-2 flex items-center">
+                            <span class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center mr-3 text-sm">2</span>
+                            收费项目设置不当
+                        </h4>
+                        <ul class="ml-11 space-y-2 text-gray-800">
+                            <li class="font-medium">• 20余项收费项目，收费标准过高且不透明</li>
+                            <li class="font-medium">• 砸金蛋、抽奖等活动带有博彩性质</li>
+                            <li class="font-medium">• 高溢价商品销售，加重家长经济负担</li>
+                            <li class="font-medium">• 已交学费基础上额外收费，存在重复收费嫌疑</li>
+                        </ul>
+                    </div>
+
+                    <div class="highlight-box p-6 rounded-lg">
+                        <h4 class="font-bold text-lg mb-2 flex items-center">
+                            <span class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center mr-3 text-sm">3</span>
+                            活动组织管理混乱
+                        </h4>
+                        <ul class="ml-11 space-y-2 text-gray-800">
+                            <li class="font-medium">• 现场缺乏专门舞台，表演节目质量参差不齐</li>
+                            <li class="font-medium">• 孩子跑来跑去，人员密集，存在安全隐患</li>
+                            <li class="font-medium">• 缺乏有效的现场管理和秩序维护</li>
+                            <li class="font-medium">• 活动缺乏教育意义和文化内涵</li>
+                        </ul>
+                    </div>
+
+                    <div class="warning-box p-6 rounded-lg">
+                        <h4 class="font-bold text-lg mb-2 flex items-center text-accent">
+                            <span class="w-8 h-8 rounded-full bg-accent text-white flex items-center justify-center mr-3 text-sm">!</span>
+                            换领导后的其他问题
+                        </h4>
+                        <ul class="ml-11 space-y-2 text-gray-800">
+                            <li class="font-medium">• 工作日让孩子参加游园活动，影响正常教学秩序</li>
+                            <li class="font-medium">• 教师打卡制度，可能影响教学氛围</li>
+                            <li class="font-medium">• 老人收费活动，增加家长负担</li>
+                            <li class="font-medium">• 卖白菜、卖草莓等商业活动进入校园</li>
+                            <li class="font-medium">• 大班家长被输送给稻香湖，存在利益输送嫌疑</li>
+                            <li class="font-medium">• 寒假按工作日放假，大班课程体系受影响</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 家长立场总结 -->
+            <div class="bg-primary text-white p-8 rounded-xl shadow-lg mt-8">
+                <h3 class="text-2xl font-bold mb-6 flex items-center">
+                    <i class="fa fa-quote-left text-secondary mr-3"></i>
+                    最有力的家长立场总结（可直接使用）
+                </h3>
+                <div class="space-y-4 text-lg leading-relaxed">
+                    <p class="border-l-4 border-secondary pl-4 text-white font-medium">
+                        我认可节日教育，但不接受用教学时间搞商业活动。
+                    </p>
+                    <p class="border-l-4 border-secondary pl-4 text-white font-medium">
+                        我交的是全天保教费，不是庙会摊位费 + 营销赞助费。
+                    </p>
+                    <p class="border-l-4 border-secondary pl-4 text-white font-medium">
+                        孩子的安全、正常上课、老师精力，才是我付费购买的服务。
+                    </p>
+                    <p class="border-l-4 border-secondary pl-4 text-white font-medium">
+                        请园方回归教育本身，不要把幼儿园变成商场和引流工具。
+                    </p>
+                </div>
+                <div class="mt-6 text-center">
+                    <button onclick="copyText('我认可节日教育，但不接受用教学时间搞商业活动。我交的是全天保教费，不是庙会摊位费 + 营销赞助费。孩子的安全、正常上课、老师精力，才是我付费购买的服务。请园方回归教育本身，不要把幼儿园变成商场和引流工具。')" class="bg-secondary text-primary font-bold py-3 px-8 rounded-lg hover:bg-yellow-400 transition-colors">
+                        <i class="fa fa-copy mr-2"></i>复制这段话
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider my-16"></div>
+
+        <!-- 学校回复分析 -->
+        <section id="analysis" class="mb-20 scroll-reveal">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 font-serif">
+                    <span class="gradient-text">拆穿学校的回复套路</span>
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <div class="warning-box p-6 rounded-lg mb-8">
+                    <h3 class="text-xl font-bold mb-4 text-red-700 flex items-center">
+                        <i class="fa fa-exclamation-triangle mr-3"></i>
+                        学校回复的本质：公关话术，不是解决问题
+                    </h3>
+                    <p class="text-gray-700 mb-4">
+                        通篇套路：<span class="font-bold text-red-600">讲道理→讲理念→讲文化→讲格局→就是不解决你的实际问题</span>
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="font-bold text-lg mb-4 text-primary">学校如何回避核心问题</h4>
+                        <div class="space-y-4">
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <p class="font-semibold text-red-600 mb-2">你的问题：孩子有没有人看？</p>
+                                <p class="text-gray-600">学校回复：只说"安排了看护"——<span class="font-bold">无证据、无细节</span></p>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <p class="font-semibold text-red-600 mb-2">你的问题：收费是否合理？</p>
+                                <p class="text-gray-600">学校回复：只套"传统文化、生活即教育"——<span class="font-bold">不回应价格</span></p>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <p class="font-semibold text-red-600 mb-2">你的问题：是否占用教学时间？</p>
+                                <p class="text-gray-600">学校回复：只说"自愿参与"——<span class="font-bold">不回应教学安排</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-4 text-primary">你最痛的点被完全无视</h4>
+                        <div class="bg-red-50 border-2 border-red-200 p-6 rounded-lg">
+                            <p class="text-xl font-bold text-red-700 mb-4 text-center">
+                                交全天学费，却只得到<br>
+                                <span class="text-3xl">半天上课 + 半天上当</span>
+                            </p>
+                            <ul class="space-y-2 text-gray-700">
+                                <li>• 家长被迫请假参加</li>
+                                <li>• 付着学费还要付高溢价费用</li>
+                                <li>• 孩子没有得到应有的教育服务</li>
+                                <li>• 现场混乱，安全无保障</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider my-16"></div>
+
+        <!-- 维权渠道 -->
+        <section id="channels" class="mb-20 scroll-reveal">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 font-serif">
+                    <span class="gradient-text">四大维权渠道（按力度从弱到强）</span>
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
+            </div>
+
+            <div class="space-y-8">
+                <!-- 渠道1 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <div class="bg-gradient-to-r from-blue-600 to-blue-800 p-6">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center mr-4">
+                                    <span class="text-white font-bold text-2xl">1</span>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-white font-serif">与园方书面交涉</h3>
+                                    <p class="text-white/80 text-sm">你已经在做，非常对</p>
+                                </div>
+                            </div>
+                            <div class="hidden md:block">
+                                <span class="bg-white/20 text-white px-4 py-2 rounded-full text-sm">基础步骤</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-bold mb-3 text-primary flex items-center">
+                                    <i class="fa fa-bullseye mr-2"></i>只抓3点，不吵架、不讲情绪
+                                </h4>
+                                <ul class="space-y-3">
+                                    <li class="flex items-start text-gray-800">
+                                        <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-3 flex-shrink-0 text-sm font-bold">1</span>
+                                        <span class="font-medium">工作日让孩子参加游园活动，影响正常教学秩序</span>
+                                    </li>
+                                    <li class="flex items-start text-gray-800">
+                                        <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-3 flex-shrink-0 text-sm font-bold">2</span>
+                                        <span class="font-medium">今天是正常教学日，收全天学费，却用半天搞商业活动</span>
+                                    </li>
+                                    <li class="flex items-start text-gray-800">
+                                        <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-3 flex-shrink-0 text-sm font-bold">3</span>
+                                        <span class="font-medium">园方声称有看护，但未公示看护方案、师资、地点</span>
+                                    </li>
+                                    <li class="flex items-start text-gray-800">
+                                        <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-3 flex-shrink-0 text-sm font-bold">4</span>
+                                        <span class="font-medium">活动大量收费项目、抽奖环节，不符合幼儿教育原则</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-3 text-primary flex items-center">
+                                    <i class="fa fa-hand-point-right mr-2"></i>核心诉求咬死两条
+                                </h4>
+                                <div class="bg-blue-50 p-4 rounded-lg space-y-3">
+                                    <div class="flex items-center text-gray-800">
+                                        <i class="fa fa-check-circle text-blue-600 mr-3"></i>
+                                        <span class="font-semibold">按半天收费，退还半天费用</span>
+                                    </div>
+                                    <div class="flex items-center text-gray-800">
+                                        <i class="fa fa-check-circle text-blue-600 mr-3"></i>
+                                        <span class="font-semibold">书面承诺：今后不在正常教学日搞此类商业营销活动</span>
+                                    </div>
+                                </div>
+                                <div class="mt-4 p-4 bg-yellow-50 rounded-lg">
+                                    <p class="text-sm text-yellow-800">
+                                        <i class="fa fa-lightbulb mr-2"></i>
+                                        <strong>关键：</strong>只要你书面提出，园方就必须留存、必须答复。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 渠道2 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <div class="bg-gradient-to-r from-secondary to-yellow-500 p-6">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center mr-4">
+                                    <span class="text-white font-bold text-2xl">2</span>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-primary font-serif">向主管部门投诉</h3>
+                                    <p class="text-primary/80 text-sm font-semibold">最有效、最直接</p>
+                                </div>
+                            </div>
+                            <div class="hidden md:block">
+                                <span class="bg-white/30 text-primary px-4 py-2 rounded-full text-sm font-bold">强烈推荐</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-bold mb-3 text-primary">投诉部门</h4>
+                                <div class="bg-yellow-50 p-4 rounded-lg mb-4">
+                                    <p class="font-semibold text-primary mb-2">幼儿园所在区 → 教委 →</p>
+                                    <ul class="space-y-1 text-gray-700">
+                                        <li>• 学前教育科</li>
+                                        <li>• 民办教育科</li>
+                                    </ul>
+                                </div>
+                                <h4 class="font-bold mb-3 text-primary">最省事、最强力</h4>
+                                <div class="bg-red-50 border-2 border-red-200 p-4 rounded-lg">
+                                    <p class="text-2xl font-bold text-red-600 text-center">直接打 12345</p>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-3 text-primary">投诉内容（非常硬）</h4>
+                                <ul class="space-y-3">
+                                    <li class="flex items-start text-gray-800">
+                                        <i class="fa fa-exclamation-circle text-red-500 mr-3 mt-1"></i>
+                                        <span class="font-medium">擅自占用正常教学时间，开展非教学、商业性质活动</span>
+                                    </li>
+                                    <li class="flex items-start text-gray-800">
+                                        <i class="fa fa-exclamation-circle text-red-500 mr-3 mt-1"></i>
+                                        <span class="font-medium">保教服务不到位，未保障幼儿正常上课与安全看护</span>
+                                    </li>
+                                    <li class="flex items-start text-gray-800">
+                                        <i class="fa fa-exclamation-circle text-red-500 mr-3 mt-1"></i>
+                                        <span class="font-medium">以节日为名，在园内设置大量收费项目、抽奖游戏，违背学前教育规范</span>
+                                    </li>
+                                    <li class="flex items-start text-gray-800">
+                                        <i class="fa fa-exclamation-circle text-red-500 mr-3 mt-1"></i>
+                                        <span class="font-medium">强制 / 变相强制家长参与，制造家长压力</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mt-6 bg-gray-50 p-6 rounded-lg">
+                            <h4 class="font-bold mb-3 text-primary">12345投诉话术（直接复制使用）</h4>
+                            <div class="bg-white p-4 rounded border-2 border-dashed border-gray-300">
+                                <p class="text-gray-800 leading-relaxed">
+                                    我要投诉<strong>芭学园王府园幼儿园</strong>。该园在<strong>正常教学日</strong>组织元宵节庙会商业活动，<strong>占用教学时间</strong>，现场设置<strong>20余项高收费项目</strong>，包含<strong>砸金蛋、抽奖</strong>等博彩性质活动。家长交全天学费，孩子却只得到半天上课+半天商业活动。现场管理混乱，存在安全隐患。要求：<strong>1.责令整改；2.退还半天费用；3.规范教学时间，不得在正常教学日搞商业营销活动。</strong>
+                                </p>
+                            </div>
+                            <div class="mt-4 text-center">
+                                <button onclick="copyText('我要投诉芭学园王府园幼儿园。该园在正常教学日组织元宵节庙会商业活动，占用教学时间，现场设置20余项高收费项目，包含砸金蛋、抽奖等博彩性质活动。家长交全天学费，孩子却只得到半天上课+半天商业活动。现场管理混乱，存在安全隐患。要求：1.责令整改；2.退还半天费用；3.规范教学时间，不得在正常教学日搞商业营销活动。')" class="bg-secondary text-primary font-bold py-2 px-6 rounded-lg hover:bg-yellow-400 transition-colors">
+                                    <i class="fa fa-copy mr-2"></i>复制投诉话术
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 渠道3 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <div class="bg-gradient-to-r from-red-600 to-red-800 p-6">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center mr-4">
+                                    <span class="text-white font-bold text-2xl">3</span>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-white font-serif">联合其他家长</h3>
+                                    <p class="text-white/80 text-sm">威力最大</p>
+                                </div>
+                            </div>
+                            <div class="hidden md:block">
+                                <span class="bg-white/20 text-white px-4 py-2 rounded-full text-sm">群体力量</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="bg-red-50 border-2 border-red-200 p-6 rounded-lg">
+                            <h4 class="font-bold text-xl mb-4 text-red-700 text-center">你不是一个人</h4>
+                            <p class="text-center text-gray-700 mb-6">
+                                只要有 <span class="text-3xl font-bold text-red-600">3–5位家长</span> 一起：
+                            </p>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <div class="bg-white p-4 rounded-lg text-center">
+                                    <i class="fa fa-file-signature text-red-500 text-3xl mb-3"></i>
+                                    <p class="font-semibold">共同签名书面意见</p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg text-center">
+                                    <i class="fa fa-phone text-red-500 text-3xl mb-3"></i>
+                                    <p class="font-semibold">一起打12345</p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg text-center">
+                                    <i class="fa fa-hand-holding-usd text-red-500 text-3xl mb-3"></i>
+                                    <p class="font-semibold">一起要求退费、整改</p>
+                                </div>
+                            </div>
+                            <div class="mt-6 p-4 bg-yellow-100 rounded-lg">
+                                <p class="text-yellow-800 text-center font-semibold">
+                                    <i class="fa fa-exclamation-triangle mr-2"></i>
+                                    幼儿园会立刻重视，因为教委对"群体投诉"非常敏感
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 渠道4 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <div class="bg-gradient-to-r from-purple-600 to-purple-800 p-6">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center mr-4">
+                                    <span class="text-white font-bold text-2xl">4</span>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-white font-serif">市场监管局（12315）</h3>
+                                    <p class="text-white/80 text-sm">针对商业违规</p>
+                                </div>
+                            </div>
+                            <div class="hidden md:block">
+                                <span class="bg-white/20 text-white px-4 py-2 rounded-full text-sm">商业监管</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-bold mb-3 text-primary">举报内容</h4>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start text-gray-800">
+                                        <i class="fa fa-check text-purple-600 mr-3 mt-1"></i>
+                                        <span class="font-medium">园内乱收费</span>
+                                    </li>
+                                    <li class="flex items-start text-gray-800">
+                                        <i class="fa fa-check text-purple-600 mr-3 mt-1"></i>
+                                        <span class="font-medium">高溢价商品</span>
+                                    </li>
+                                    <li class="flex items-start text-gray-800">
+                                        <i class="fa fa-check text-purple-600 mr-3 mt-1"></i>
+                                        <span class="font-medium">砸金蛋、抽奖等涉嫌诱导消费</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-3 text-primary">投诉要点</h4>
+                                <div class="bg-purple-50 p-4 rounded-lg">
+                                    <p class="text-gray-700">
+                                        利用幼儿活动进行<strong>营利性经营</strong>，<strong>未明码标价</strong> / <strong>不合理高价</strong>。
+                                    </p>
+                                </div>
+                                <div class="mt-4">
+                                    <p class="font-semibold text-primary mb-2">举报方式：</p>
+                                    <p class="text-2xl font-bold text-purple-600">12315</p>
+                                    <p class="text-gray-600">全国12315平台网站/APP</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider my-16"></div>
+
+        <!-- 维权模板 -->
+        <section id="templates" class="mb-20 scroll-reveal">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 font-serif">
+                    <span class="gradient-text">现成维权模板（直接复制使用）</span>
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
+            </div>
+
+            <div class="space-y-8">
+                <!-- 模板1 -->
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <h3 class="text-xl font-bold mb-4 flex items-center text-primary">
+                        <i class="fa fa-file-alt mr-3"></i>
+                        模板一：给学校的最终书面质问
+                    </h3>
+                    <div class="bg-gray-50 p-6 rounded-lg border-2 border-dashed border-gray-300">
+                        <div class="space-y-4 text-gray-800">
+                            <p class="font-medium"><strong>致：</strong>芭学园王府园管理层</p>
+                            <p class="font-medium"><strong>投诉人：</strong>[家长姓名]</p>
+                            <p class="font-medium"><strong>幼儿班级：</strong>[班级名称]</p>
+                            <p class="font-medium"><strong>联系方式：</strong>[联系电话]</p>
+                            
+                            <p class="mt-6 font-bold text-gray-900"><strong>一、核心事实</strong></p>
+                            <p class="font-medium">1. 今天是正常教学日，我支付了全天保教费</p>
+                            <p class="font-medium">2. 学校却用半天时间组织商业性质的元宵节庙会活动</p>
+                            <p class="font-medium">3. 现场设置20余项高收费项目，包含砸金蛋、抽奖等博彩性质活动</p>
+                            <p class="font-medium">4. 现场管理混乱，存在安全隐患</p>
+                            
+                            <p class="mt-4 font-bold text-gray-900"><strong>二、我的质疑</strong></p>
+                            <p class="font-medium">1. 我交的是全天保教费，不是庙会摊位费 + 营销赞助费</p>
+                            <p class="font-medium">2. 孩子的安全、正常上课、老师精力，才是我付费购买的服务</p>
+                            <p class="font-medium">3. 请公示"有看护"的具体方案：看护师资、看护地点、看护内容</p>
+                            <p class="font-medium">4. 砸金蛋、抽奖等活动是否符合幼儿教育原则？</p>
+                            
+                            <p class="mt-4 font-bold text-gray-900"><strong>三、我的诉求</strong></p>
+                            <p class="font-medium">1. 退还本次活动半天学费</p>
+                            <p class="font-medium">2. 书面承诺：今后不在正常教学日搞此类商业营销活动</p>
+                            <p class="font-medium">3. 公开道歉并说明整改措施</p>
+                            
+                            <p class="mt-4 font-bold text-gray-900"><strong>四、要求</strong></p>
+                            <p class="font-medium">请贵园在收到本投诉后<strong>5个工作日内</strong>给予书面回复。如贵园不予理睬或回复不满意，我们将向教育主管部门、市场监管部门投诉举报，并保留通过法律途径维护权益的权利。</p>
+                            
+                            <p class="mt-6 text-right font-medium">投诉人：[签名]</p>
+                            <p class="text-right font-medium">日期：[年月日]</p>
+                        </div>
+                    </div>
+                    <div class="mt-4 text-center">
+                        <button onclick="copyTemplate('template1')" class="bg-primary text-white font-bold py-3 px-8 rounded-lg hover:bg-blue-800 transition-colors">
+                            <i class="fa fa-copy mr-2"></i>复制模板
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 模板2 -->
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <h3 class="text-xl font-bold mb-4 flex items-center text-primary">
+                        <i class="fa fa-phone mr-3"></i>
+                        模板二：12345投诉文本（直接复制粘贴）
+                    </h3>
+                    <div class="bg-red-50 p-6 rounded-lg border-2 border-red-200">
+                        <p class="text-gray-800 leading-relaxed text-lg">
+                            我要投诉<strong>芭学园王府园幼儿园</strong>。该园在<strong>正常教学日</strong>组织元宵节庙会商业活动，<strong>占用教学时间</strong>，现场设置<strong>20余项高收费项目</strong>，包含<strong>砸金蛋、抽奖</strong>等博彩性质活动。家长交全天学费，孩子却只得到半天上课+半天商业活动。现场管理混乱，存在安全隐患。
+                        </p>
+                        <p class="text-gray-800 leading-relaxed text-lg mt-4">
+                            <strong>我的诉求：</strong>1.责令整改；2.退还半天费用；3.规范教学时间，不得在正常教学日搞商业营销活动。
+                        </p>
+                    </div>
+                    <div class="mt-4 text-center">
+                        <button onclick="copyText('我要投诉芭学园王府园幼儿园。该园在正常教学日组织元宵节庙会商业活动，占用教学时间，现场设置20余项高收费项目，包含砸金蛋、抽奖等博彩性质活动。家长交全天学费，孩子却只得到半天上课+半天商业活动。现场管理混乱，存在安全隐患。我的诉求：1.责令整改；2.退还半天费用；3.规范教学时间，不得在正常教学日搞商业营销活动。')" class="bg-red-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-red-700 transition-colors">
+                            <i class="fa fa-copy mr-2"></i>复制投诉文本
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 模板3 -->
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <h3 class="text-xl font-bold mb-4 flex items-center text-primary">
+                        <i class="fa fa-comments mr-3"></i>
+                        模板三：家长群发言话术
+                    </h3>
+                    <div class="bg-blue-50 p-6 rounded-lg border-2 border-blue-200">
+                        <p class="text-gray-800 leading-relaxed mb-4 font-medium">
+                            各位家长，关于今天的元宵节活动，我想说说我的看法：
+                        </p>
+                        <p class="text-gray-800 leading-relaxed mb-4 font-medium">
+                            我认可节日教育，但不接受用<strong>教学时间</strong>搞商业活动。我交的是<strong>全天保教费</strong>，不是庙会摊位费 + 营销赞助费。
+                        </p>
+                        <p class="text-gray-800 leading-relaxed mb-4 font-medium">
+                            孩子的<strong>安全、正常上课、老师精力</strong>，才是我付费购买的服务。请园方回归教育本身，不要把幼儿园变成商场和引流工具。
+                        </p>
+                        <p class="text-gray-800 leading-relaxed font-medium">
+                            我要求：<strong>1.退还半天学费；2.书面承诺今后不再搞此类活动。</strong>如果有相同诉求的家长，我们可以一起向学校反映。
+                        </p>
+                    </div>
+                    <div class="mt-4 text-center">
+                        <button onclick="copyText('各位家长，关于今天的元宵节活动，我想说说我的看法：我认可节日教育，但不接受用教学时间搞商业活动。我交的是全天保教费，不是庙会摊位费 + 营销赞助费。孩子的安全、正常上课、老师精力，才是我付费购买的服务。请园方回归教育本身，不要把幼儿园变成商场和引流工具。我要求：1.退还半天学费；2.书面承诺今后不再搞此类活动。如果有相同诉求的家长，我们可以一起向学校反映。')" class="bg-blue-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-blue-700 transition-colors">
+                            <i class="fa fa-copy mr-2"></i>复制群发言
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider my-16"></div>
+
+        <!-- 行动策略 -->
+        <section id="strategy" class="mb-20 scroll-reveal">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 font-serif">
+                    <span class="gradient-text">四步行动策略</span>
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <div class="relative">
+                    <div class="hidden md:block timeline-line"></div>
+                    
+                    <div class="space-y-12">
+                        <!-- 步骤1 -->
+                        <div class="flex flex-col md:flex-row items-center">
+                            <div class="w-full md:w-1/2 md:pr-12 md:text-right mb-4 md:mb-0">
+                                <h3 class="text-xl font-bold mb-2 font-serif">第一步：收集证据</h3>
+                                <p class="text-gray-600">
+                                    保存活动通知、收费明细、现场照片、视频等证据材料，记录与学校的沟通记录。
+                                </p>
+                            </div>
+                            <div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center font-bold z-10">1</div>
+                            <div class="w-full md:w-1/2 md:pl-12 mt-4 md:mt-0">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <ul class="text-sm text-gray-600 space-y-1">
+                                        <li>• 活动通知和接龙记录</li>
+                                        <li>• 收费项目和标准截图</li>
+                                        <li>• 现场照片和视频</li>
+                                        <li>• 与老师的沟通记录</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 步骤2 -->
+                        <div class="flex flex-col md:flex-row items-center">
+                            <div class="w-full md:w-1/2 md:pr-12 md:text-right mb-4 md:mb-0 order-1 md:order-1">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <ul class="text-sm text-gray-600 space-y-1">
+                                        <li>• 在家长群发起讨论</li>
+                                        <li>• 了解其他家长意见</li>
+                                        <li>• 形成共同诉求</li>
+                                        <li>• 推选家长代表</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="w-12 h-12 rounded-full bg-secondary text-primary flex items-center justify-center font-bold z-10 order-2 md:order-2">2</div>
+                            <div class="w-full md:w-1/2 md:pl-12 mt-4 md:mt-0 order-3 md:order-3">
+                                <h3 class="text-xl font-bold mb-2 font-serif">第二步：联合家长</h3>
+                                <p class="text-gray-600">
+                                    在家长群发起讨论，了解其他家长的意见和诉求，形成集体力量。
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- 步骤3 -->
+                        <div class="flex flex-col md:flex-row items-center">
+                            <div class="w-full md:w-1/2 md:pr-12 md:text-right mb-4 md:mb-0">
+                                <h3 class="text-xl font-bold mb-2 font-serif">第三步：正式交涉</h3>
+                                <p class="text-gray-600">
+                                    向学校提交书面投诉材料，明确诉求和期限，要求学校出具书面回复。
+                                </p>
+                            </div>
+                            <div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center font-bold z-10">3</div>
+                            <div class="w-full md:w-1/2 md:pl-12 mt-4 md:mt-0">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <ul class="text-sm text-gray-600 space-y-1">
+                                        <li>• 撰写正式投诉信</li>
+                                        <li>• 列明具体问题和诉求</li>
+                                        <li>• 要求书面回复</li>
+                                        <li>• 设定5个工作日期限</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 步骤4 -->
+                        <div class="flex flex-col md:flex-row items-center">
+                            <div class="w-full md:w-1/2 md:pr-12 md:text-right mb-4 md:mb-0 order-1 md:order-1">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <ul class="text-sm text-gray-600 space-y-1">
+                                        <li>• 打12345投诉</li>
+                                        <li>• 向教委投诉</li>
+                                        <li>• 向市场监管局举报</li>
+                                        <li>• 媒体曝光</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="w-12 h-12 rounded-full bg-accent text-white flex items-center justify-center font-bold z-10 order-2 md:order-2">4</div>
+                            <div class="w-full md:w-1/2 md:pl-12 mt-4 md:mt-0 order-3 md:order-3">
+                                <h3 class="text-xl font-bold mb-2 font-serif">第四步：升级维权</h3>
+                                <p class="text-gray-600">
+                                    如学校不予理睬或回复不满意，及时向主管部门投诉举报。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 成功预判 -->
+        <section class="mb-20 scroll-reveal">
+            <div class="bg-gradient-to-r from-green-600 to-green-800 rounded-xl shadow-lg p-8 text-white">
+                <h3 class="text-2xl font-bold mb-6 font-serif text-center">
+                    <i class="fa fa-trophy mr-3"></i>
+                    维权成功预判
+                </h3>
+                
+                <div class="text-center mb-8">
+                    <p class="text-xl mb-4">你维权成功率很高，因为你：</p>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <span class="bg-white/20 px-4 py-2 rounded-full">占理</span>
+                        <span class="bg-white/20 px-4 py-2 rounded-full">占规则</span>
+                        <span class="bg-white/20 px-4 py-2 rounded-full">占政策</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white/10 p-6 rounded-lg text-center">
+                        <i class="fa fa-money-bill-wave text-4xl mb-4"></i>
+                        <h4 class="font-bold text-lg mb-2">退费半天</h4>
+                        <p class="text-white/80">完全可以实现</p>
+                    </div>
+                    <div class="bg-white/10 p-6 rounded-lg text-center">
+                        <i class="fa fa-handshake text-4xl mb-4"></i>
+                        <h4 class="font-bold text-lg mb-2">园方道歉</h4>
+                        <p class="text-white/80">完全可以实现</p>
+                    </div>
+                    <div class="bg-white/10 p-6 rounded-lg text-center">
+                        <i class="fa fa-file-contract text-4xl mb-4"></i>
+                        <h4 class="font-bold text-lg mb-2">承诺不再搞</h4>
+                        <p class="text-white/80">完全可以实现</p>
+                    </div>
+                </div>
+
+                <div class="mt-8 text-center">
+                    <p class="text-lg">
+                        你现在的表达已经非常清晰、非常克制、非常有水平，<strong>继续保持就行</strong>。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 注意事项 -->
+        <section class="mb-16 scroll-reveal">
+            <div class="bg-gradient-to-r from-orange-500 to-red-600 rounded-xl shadow-lg p-8 text-white">
+                <h3 class="text-2xl font-bold mb-6 font-serif flex items-center">
+                    <i class="fa fa-exclamation-circle mr-3"></i>
+                    维权注意事项
+                </h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-bold mb-3 text-yellow-300">应当做的</h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle mr-2 mt-1"></i>
+                                <span>保持理性克制，依法维权</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle mr-2 mt-1"></i>
+                                <span>收集保存证据材料</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle mr-2 mt-1"></i>
+                                <span>联合其他家长集体行动</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle mr-2 mt-1"></i>
+                                <span>通过正规渠道投诉举报</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle mr-2 mt-1"></i>
+                                <span>保留所有沟通记录</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold mb-3 text-yellow-300">避免做的</h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i class="fa fa-times-circle mr-2 mt-1"></i>
+                                <span>避免情绪化、过激行为</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-times-circle mr-2 mt-1"></i>
+                                <span>不要单独行动，要团结家长</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-times-circle mr-2 mt-1"></i>
+                                <span>不要接受口头承诺，要求书面回复</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-times-circle mr-2 mt-1"></i>
+                                <span>不要放弃维权，坚持到底</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-times-circle mr-2 mt-1"></i>
+                                <span>不要泄露其他家长隐私</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 紧急联系 -->
+        <section class="mb-16 scroll-reveal">
+            <div class="bg-white rounded-xl shadow-lg p-8 text-center">
+                <h3 class="text-2xl font-bold mb-4 font-serif">紧急联系方式</h3>
+                <div class="flex flex-wrap justify-center gap-6">
+                    <div class="bg-red-50 px-8 py-6 rounded-lg border-2 border-red-200">
+                        <i class="fa fa-phone text-red-600 text-3xl mb-3"></i>
+                        <p class="text-2xl font-bold text-red-600">12345</p>
+                        <p class="text-gray-600">市民服务热线</p>
+                        <p class="text-sm text-gray-500 mt-2">最有效、最直接</p>
+                    </div>
+                    <div class="bg-blue-50 px-8 py-6 rounded-lg border-2 border-blue-200">
+                        <i class="fa fa-phone text-blue-600 text-3xl mb-3"></i>
+                        <p class="text-2xl font-bold text-blue-600">12315</p>
+                        <p class="text-gray-600">消费者投诉热线</p>
+                        <p class="text-sm text-gray-500 mt-2">针对商业违规</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="gradient-bg text-white py-12">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-white mb-4">
+                本指南仅供芭学园王府园家长维权参考
+            </p>
+            <p class="text-white/60 text-sm">
+                不绕弯、不鸡汤，只讲你现在能用、能落地的东西
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // 滚动显示动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const scrollElements = document.querySelectorAll('.scroll-reveal');
+            
+            const elementInView = (el, dividend = 1) => {
+                const elementTop = el.getBoundingClientRect().top;
+                return (
+                    elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend
+                );
+            };
+            
+            const displayScrollElement = (element) => {
+                element.classList.add('active');
+            };
+            
+            const handleScrollAnimation = () => {
+                scrollElements.forEach((el) => {
+                    if (elementInView(el, 1.25)) {
+                        displayScrollElement(el);
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', () => {
+                handleScrollAnimation();
+            });
+            
+            // 初始检查
+            handleScrollAnimation();
+        });
+
+        // 复制文本功能
+        function copyText(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert('已复制到剪贴板！');
+            }).catch(err => {
+                console.error('复制失败:', err);
+            });
+        }
+
+        // 复制模板功能
+        function copyTemplate(templateId) {
+            let text = '';
+            if (templateId === 'template1') {
+                text = `致：芭学园王府园管理层
+
+投诉人：[家长姓名]
+幼儿班级：[班级名称]
+联系方式：[联系电话]
+
+一、核心事实
+1. 今天是正常教学日，我支付了全天保教费
+2. 学校却用半天时间组织商业性质的元宵节庙会活动
+3. 现场设置20余项高收费项目，包含砸金蛋、抽奖等博彩性质活动
+4. 现场管理混乱，存在安全隐患
+
+二、我的质疑
+1. 我交的是全天保教费，不是庙会摊位费 + 营销赞助费
+2. 孩子的安全、正常上课、老师精力，才是我付费购买的服务
+3. 请公示"有看护"的具体方案：看护师资、看护地点、看护内容
+4. 砸金蛋、抽奖等活动是否符合幼儿教育原则？
+
+三、我的诉求
+1. 退还本次活动半天学费
+2. 书面承诺：今后不在正常教学日搞此类商业营销活动
+3. 公开道歉并说明整改措施
+
+四、要求
+请贵园在收到本投诉后5个工作日内给予书面回复。如贵园不予理睬或回复不满意，我们将向教育主管部门、市场监管部门投诉举报，并保留通过法律途径维护权益的权利。
+
+投诉人：[签名]
+日期：[年月日]`;
+            }
+            navigator.clipboard.writeText(text).then(() => {
+                alert('模板已复制到剪贴板！');
+            }).catch(err => {
+                console.error('复制失败:', err);
+            });
+        }
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
